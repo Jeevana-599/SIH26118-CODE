@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>H₂S SENSE BAND | SIH26118</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="top">
+
+  <div class="brand">
+    <b>H₂S</b>
+
+    <span>
+      <strong>SENSE BAND</strong>
+      <small>Passive Colorimetric Exposure Dosimeter</small>
+    </span>
+  </div>
+
+  <nav>
+    <button data-tab="overview">Overview</button>
+    <button data-tab="scan">Scan & Quantify</button>
+    <button data-tab="dashboard">EHS Dashboard</button>
+    <button data-tab="architecture">Architecture</button>
+    <button data-tab="validation">Validation</button>
+    <button data-tab="research">Research</button>
+  </nav>
+
+  <label>
+    MRPL • SIH26118 • Code Crafters
+  </label>
+
+</header>
+
+
+<main>
+
+<!-- =========================
+     OVERVIEW
+========================= -->
+
+<section id="overview" class="tab active">
+
+  <div class="hero">
+
+    <div>
+
+      <em>
+        SMART INDIA HACKATHON 2026 • HARDWARE • SMART AUTOMATION
+      </em>
+
+      <h1>
+        H₂S <span>SENSE BAND</span>
+      </h1>
+
+      <h2>
+        Passive Colorimetric H₂S Exposure-Dosimeter Wristband
+        with AI-Based Quantitative Reading
+      </h2>
+
+      <p>
+        Turn a progressive color response into an estimated cumulative
+        exposure record using reference-calibrated smartphone imaging.
+      </p>
+
+      <button class="primary" data-go="scan">
+        Try Scan Demo
+      </button>
+
+      <button class="secondary" data-go="architecture">
+        View Architecture
+      </button>
+
+    </div>
+
+
+    <div class="visual">
+
+      <div class="band">
+
+        <div class="strap"></div>
+
+        <div class="face">
+          <i></i>
+          <i></i>
+          <i></i>
+
+          <b>H₂S SENSE</b>
+        </div>
+
+      </div>
+
+
+      <div class="phone">
+
+        <b>H₂S SENSE</b>
+
+        <strong id="heroDose">
+          45
+        </strong>
+
+        <small>
+          ppm·hr
+        </small>
+
+        <span>
+          ✓ VALID BAND
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="cards">
+
+    <article>
+
+      <b>!</b>
+
+      <h3>
+        Problem
+      </h3>
+
+      <p>
+        Instantaneous detectors do not provide convenient
+        cumulative exposure history; passive badges are
+        difficult to quantify digitally.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>✦</b>
+
+      <h3>
+        Solution
+      </h3>
+
+      <p>
+        Disposable sensing strip + reference color scale +
+        expiry indicator + smartphone image analysis +
+        ML dose estimation.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>↗</b>
+
+      <h3>
+        Impact
+      </h3>
+
+      <p>
+        Worker, shift, badge, timestamp, estimated dose
+        and uncertainty captured for EHS review.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <b>✓</b>
+
+      <h3>
+        Proof
+      </h3>
+
+      <p>
+        Controlled concentration × time tests,
+        cross-lighting tests, shelf-life validation
+        and model evaluation.
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div>
+      <b>₹200–500</b>
+      <small>target cost at scale</small>
+    </div>
+
+    <div>
+      <b>30 / 90 days</b>
+      <small>example shelf-life target</small>
+    </div>
+
+    <div>
+      <b>ppm·hr</b>
+      <small>cumulative dose unit</small>
+    </div>
+
+    <div>
+      <b>R² &gt; 0.90</b>
+      <small>model validation target</small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SCAN
+========================= -->
+
+<section id="scan" class="tab">
+
+  <div class="head">
+
+    <div>
+
+      <em>MOBILE APP PROTOTYPE</em>
+
+      <h2>
+        Scan → Calibrate → Estimate → Record
+      </h2>
+
+    </div>
+
+    <span>
+      DEMO MODE
+    </span>
+
+  </div>
+
+
+  <div class="grid3">
+
+    <div class="panel">
+
+      <h3>
+        1. Capture sensor image
+      </h3>
+
+      <label class="upload">
+
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+        >
+
+        📷 Choose wristband image
+
+      </label>
+
+
+      <div class="preview">
+
+        <img id="preview">
+
+        <span id="ph">
+          Upload an image to preview.
+        </span>
+
+      </div>
+
+
+      <div class="checks">
+
+        <span id="c1">
+          ○ Framing
+        </span>
+
+        <span id="c2">
+          ○ Reference detected
+        </span>
+
+        <span id="c3">
+          ○ Lighting calibrated
+        </span>
+
+      </div>
+
+
+      <button
+        class="primary full"
+        id="run"
+      >
+        Run AI Quantification
+      </button>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>
+        2. Reference calibration
+      </h3>
+
+      <p>
+        Prototype controls for reference-color correction
+        and environmental compensation.
+      </p>
+
+
+      <div class="scale">
+
+        <i>0</i>
+        <i>10</i>
+        <i>50</i>
+        <i>100</i>
+        <i>200+</i>
+
+      </div>
+
+
+      <label>
+
+        Observed sensor darkness
+
+        <input
+          id="dark"
+          type="range"
+          min="0"
+          max="100"
+          value="45"
+        >
+
+        <output id="darkOut">
+          45%
+        </output>
+
+      </label>
+
+
+      <label>
+
+        Temperature
+
+        <input
+          id="temp"
+          type="range"
+          min="10"
+          max="45"
+          value="27"
+        >
+
+        <output id="tempOut">
+          27°C
+        </output>
+
+      </label>
+
+
+      <label>
+
+        Humidity
+
+        <input
+          id="hum"
+          type="range"
+          min="20"
+          max="90"
+          value="55"
+        >
+
+        <output id="humOut">
+          55%
+        </output>
+
+      </label>
+
+    </div>
+
+
+    <div class="panel result">
+
+      <h3>
+        3. Quantitative result
+      </h3>
+
+
+      <strong id="dose">
+        45
+      </strong>
+
+      <small>
+        ppm·hr
+      </small>
+
+
+      <p>
+        95% CI:
+        <b id="ci">
+          38–52
+        </b>
+        ppm·hr
+      </p>
+
+
+      <div class="valid">
+
+        ✓ Badge status:
+        <b id="valid">
+          VALID
+        </b>
+
+      </div>
+
+
+      <div class="mini">
+
+        <span>
+          Worker
+          <b>RJK-001</b>
+        </span>
+
+        <span>
+          Shift
+          <b>Day</b>
+        </span>
+
+        <span>
+          Model
+          <b>RF + XGBoost</b>
+        </span>
+
+        <span>
+          Quality
+          <b id="quality">Good</b>
+        </span>
+
+      </div>
+
+
+      <button
+        class="secondary full"
+        id="save"
+      >
+        Save to exposure history
+      </button>
+
+
+      <small class="note">
+        Prototype estimate only; not a certified H₂S detector.
+      </small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section id="dashboard" class="tab">
+
+  <div class="head">
+
+    <div>
+
+      <em>EHS / OCCUPATIONAL HEALTH</em>
+
+      <h2>
+        Exposure Dashboard
+      </h2>
+
+    </div>
+
+    <button
+      class="secondary"
+      id="csv"
+    >
+      Export CSV
+    </button>
+
+  </div>
+
+
+  <div class="kpis">
+
+    <div>
+      Total workers
+      <b>128</b>
+    </div>
+
+    <div>
+      Scans
+      <b id="scans">1,246</b>
+    </div>
+
+    <div>
+      High-dose reviews
+      <b>12</b>
+    </div>
+
+    <div>
+      Valid bands
+      <b>1,210</b>
+    </div>
+
+  </div>
+
+
+  <div class="grid2">
+
+    <div class="panel">
+
+      <h3>
+        Weekly cumulative dose trend
+      </h3>
+
+      <div
+        class="bars"
+        id="bars"
+      ></div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>
+        Recent exposure records
+      </h3>
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Worker</th>
+            <th>Shift</th>
+            <th>Dose</th>
+            <th>Status</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="rows"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ARCHITECTURE
+========================= -->
+
+<section id="architecture" class="tab">
+
+  <div class="head">
+
+    <div>
+
+      <em>SYSTEM DESIGN</em>
+
+      <h2>
+        End-to-End Architecture
+      </h2>
+
+    </div>
+
+    <span>
+      OFFLINE-FIRST READY
+    </span>
+
+  </div>
+
+
+  <div
+    class="pipeline"
+    id="pipeline"
+  ></div>
+
+
+  <div class="arch">
+
+    <article>
+
+      <h3>
+        Wearable Hardware
+      </h3>
+
+      <ul>
+
+        <li>Silicone/TPU wristband</li>
+
+        <li>Cellulose colorimetric strip</li>
+
+        <li>8–12 reference patches</li>
+
+        <li>Separate expiry indicator</li>
+
+        <li>QR worker/batch traceability</li>
+
+      </ul>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        Mobile / Edge
+      </h3>
+
+      <ul>
+
+        <li>Flutter / React Native</li>
+
+        <li>OpenCV preprocessing</li>
+
+        <li>Reference detection + lighting correction</li>
+
+        <li>TensorFlow Lite / ONNX</li>
+
+        <li>Offline storage + sync</li>
+
+      </ul>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        Data + Model
+      </h3>
+
+      <ul>
+
+        <li>CIELab + ΔE features</li>
+
+        <li>Random Forest + XGBoost</li>
+
+        <li>Dose + uncertainty</li>
+
+        <li>Versioned calibration/model</li>
+
+        <li>Controlled lab training data</li>
+
+      </ul>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        EHS / Backend
+      </h3>
+
+      <ul>
+
+        <li>Worker/shift records</li>
+
+        <li>Exposure trends</li>
+
+        <li>PDF / CSV reporting</li>
+
+        <li>Secure database</li>
+
+        <li>EHS API integration</li>
+
+      </ul>
+
+    </article>
+
+  </div>
+
+
+  <div class="stack">
+
+    <b>Flutter</b>
+
+    <b>OpenCV</b>
+
+    <b>TensorFlow Lite / ONNX</b>
+
+    <b>React</b>
+
+    <b>Firebase / Supabase</b>
+
+    <b>PostgreSQL / TimescaleDB</b>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     VALIDATION
+========================= -->
+
+<section id="validation" class="tab">
+
+  <div class="head">
+
+    <div>
+
+      <em>VALIDATION ROADMAP</em>
+
+      <h2>
+        Build → Characterize → Validate → Pilot
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="road">
+
+    <article>
+      <b>01</b>
+      <h3>Chemistry</h3>
+      <p>
+        Sensitivity, selectivity, permanence, stability.
+      </p>
+    </article>
+
+    <article>
+      <b>02</b>
+      <h3>Calibration</h3>
+      <p>
+        Known concentration × time versus color features.
+      </p>
+    </article>
+
+    <article>
+      <b>03</b>
+      <h3>Robustness</h3>
+      <p>
+        Phone, lighting, temperature and humidity variation.
+      </p>
+    </article>
+
+    <article>
+      <b>04</b>
+      <h3>AI</h3>
+      <p>
+        Train/validate ensemble and uncertainty.
+      </p>
+    </article>
+
+    <article>
+      <b>05</b>
+      <h3>Pilot</h3>
+      <p>
+        Usability and comparison with qualified methods.
+      </p>
+    </article>
+
+  </div>
+
+
+  <div class="risk">
+
+    <div>
+
+      <h3>Challenges</h3>
+
+      <p>Lighting / phone variation</p>
+      <p>Poor image quality</p>
+      <p>Badge ageing</p>
+      <p>Temperature / humidity / sweat</p>
+
+    </div>
+
+
+    <div>
+
+      <h3>Controls</h3>
+
+      <p>Reference calibration</p>
+      <p>Automatic QC + retake</p>
+      <p>Independent expiry indicator</p>
+      <p>Environmental testing + compensation</p>
+
+    </div>
+
+  </div>
+
+
+  <aside>
+
+    <b>Safety boundary:</b>
+
+    this is a supplementary exposure-documentation prototype.
+    Actual H₂S chemistry, exposure experiments, occupational limits
+    and certification require qualified laboratory and industrial-safety
+    validation.
+
+  </aside>
+
+</section>
+
+
+<!-- =========================
+     RESEARCH
+========================= -->
+
+<section id="research" class="tab">
+
+  <div class="head">
+
+    <div>
+
+      <em>RESEARCH BASIS</em>
+
+      <h2>
+        Literature → Gap → Design Decision
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="research">
+
+    <article>
+
+      <h3>
+        Smartphone colorimetry
+      </h3>
+
+      <p>
+        Reference calibration, CIELab features, image preprocessing
+        and device/lighting compensation support the smartphone-reading
+        concept.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        H₂S sensing
+      </h3>
+
+      <p>
+        The project document discusses bismuth-based and Cu-PAN paper
+        sensors as candidate colorimetric chemistries.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        AI / ML
+      </h3>
+
+      <p>
+        Random Forest + XGBoost is proposed for dose estimation
+        with uncertainty.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <h3>
+        Wearables
+      </h3>
+
+      <p>
+        Wearable chemical-sensing literature supports the wristband
+        form factor; shelf-life and environmental robustness remain
+        validation tasks.
+      </p>
+
+    </article>
+
+  </div>
+
+
+  <div class="refs">
+
+    <h3>
+      Selected research themes from the supplied problem document
+    </h3>
+
+    <ol>
+
+      <li>
+        Smartphone-based colorimetric detection via machine learning (2017)
+      </li>
+
+      <li>
+        Quantification of Colorimetric Data for Paper-Based Analytical Devices (2019)
+      </li>
+
+      <li>
+        Accurate device-independent colorimetric measurements using smartphones (2020)
+      </li>
+
+      <li>
+        Smartphone-based image analysis coupled to paper-based colorimetric devices (2020)
+      </li>
+
+      <li>
+        Smartphone-Enabled Colorimetry (2023)
+      </li>
+
+      <li>
+        Chemometrics and digital image colorimetry approaches applied to
+        paper-based analytical devices: A review (2025)
+      </li>
+
+      <li>
+        Smartphone-based colorimetric sensing with reference calibration
+        and ensemble machine learning (2026)
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <span>
+    SIH26118 • MRPL • Hardware • Smart Automation
+  </span>
+
+  <b>
+    Code Crafters
+  </b>
+
+  <span>
+    Prototype UI • Not a certified gas detector
+  </span>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
